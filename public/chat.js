@@ -195,7 +195,7 @@ function longPoll (data) {
   //make another request
   $.ajax({ cache: false
          , type: "GET"
-         , url: "/recv"
+         , url: "/messages/all.json"
          , dataType: "json"
          , data: { since: CONFIG.last_message_time, id: CONFIG.id }
          , error: function () {

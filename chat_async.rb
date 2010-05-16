@@ -72,7 +72,9 @@ class AsyncTest < Sinatra::Base
   
   aget '/messages/all.json' do
     content_type :json
-    body { @@messages.to_json }
+    EM.add_timer(10){
+      body { {:messages => @@messages}.to_json }
+    }
   end
   
   apost '/message' do
@@ -85,7 +87,7 @@ class AsyncTest < Sinatra::Base
   aget '/' do
     body {
       logger.debug "#{File.dirname(__FILE__)}"
-      erb :welcome      
+      erb :welcome
     }
     
   end
