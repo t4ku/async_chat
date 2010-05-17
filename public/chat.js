@@ -1,41 +1,42 @@
+var current_time = (new Date).getTime();
 var CONFIG = { debug: false
-             , nick: "#"   // set in onConnect
+             , username: "#"   // set in onConnect
              , id: null    // set in onConnect
-             , last_message_time: 1
+             , last_message_time: current_time
              , focus: true //event listeners bound in onConnect
              , unread: 0 //updated in the message-processing loop
              };
 
-var nicks = [];
+var users = [];
 
 //updates the users link to reflect the number of active users
 function updateUsersLink ( ) {
-  var t = nicks.length.toString() + " user";
-  if (nicks.length != 1) t += "s";
+  var t = users.length.toString() + " user";
+  if (users.length != 1) t += "s";
   $("#usersLink").text(t);
 }
 
 //handles another person joining chat
-function userJoin(nick, timestamp) {
+function userJoin(username, timestamp) {
   //put it in the stream
-  addMessage(nick, "joined", timestamp, "join");
+  addMessage(username, "joined", timestamp, "join");
   //if we already know about this user, ignore it
-  for (var i = 0; i < nicks.length; i++)
-    if (nicks[i] == nick) return;
+  for (var i = 0; i < users.length; i++)
+    if (users[i] == nick) return;
   //otherwise, add the user to the list
-  nicks.push(nick);
+  users.push(username);
   //update the UI
   updateUsersLink();
 }
 
 //handles someone leaving
-function userPart(nick, timestamp) {
+function userPart(username, timestamp) {
   //put it in the stream
-  addMessage(nick, "left", timestamp, "part");
+  addMessage(username, "left", timestamp, "part");
   //remove the user from the list
   for (var i = 0; i < nicks.length; i++) {
-    if (nicks[i] == nick) {
-      nicks.splice(i,1)
+    if (users[i] == nick) {
+      users.splice(i,1)
       break;
     }
   }
@@ -108,7 +109,7 @@ function addMessage (from, text, time, _class) {
   //  the time,
   //  the person who caused the event,
   //  and the content
-  var messageElement = $(document.createElement("table"));
+  var messageElement = $(document.createElement("div"));
 
   messageElement.addClass("message");
   if (_class)
@@ -125,16 +126,15 @@ function addMessage (from, text, time, _class) {
   // replace URLs with links
   text = text.replace(util.urlRE, '<a target="_blank" href="$&">$&</a>');
 
-  var content = '<tr>'
-              + '  <td class="date">' + util.timeString(time) + '</td>'
-              + '  <td class="nick">' + util.toStaticHTML(from) + '</td>'
-              + '  <td class="msg-text">' + text  + '</td>'
-              + '</tr>'
+  var content = '  <span class="date">' + util.timeString(time) + '</span>'
+              + '  <span class="nick">' + util.toStaticHTML(from) + '</span>'
+              + '  <span class="msg-text">' + text  + '</span>'
+              + '</span>'
               ;
   messageElement.html(content);
 
   //the log is the stream that we view
-  $("#log").append(messageElement);
+  $("#messages").append(messageElement);
 
   //always view the most recent message when it is added
   scrollDown();
@@ -170,17 +170,18 @@ function longPoll (data) {
           if(!CONFIG.focus){
             CONFIG.unread++;
           }
-          addMessage(message.nick, message.text, message.timestamp);
+          addMessage(message.username, message.text, message.timestamp);
           break;
 
         case "join":
-          userJoin(message.nick, message.timestamp);
+          userJoin(message.username, message.timestamp);
           break;
 
         case "part":
-          userPart(message.nick, message.timestamp);
+          userPart(message.username, message.timestamp);
           break;
       }
+		addMessage("Hoge",message.text,message.timestamp);
     }
     //update the document title to include unread message count if blurred
     updateTitle();
@@ -195,9 +196,9 @@ function longPoll (data) {
   //make another request
   $.ajax({ cache: false
          , type: "GET"
-         , url: "/messages/all.json"
+         , url: "/messages.json"
          , dataType: "json"
-         , data: { since: CONFIG.last_message_time, id: CONFIG.id }
+         , data: first_poll ? {} : { since: CONFIG.last_message_time, id: CONFIG.id }
          , error: function () {
              addMessage("", "long poll error. trying again...", new Date(), "error");
              transmission_errors += 1;
@@ -288,9 +289,9 @@ function onConnect (session) {
 }
 
 //add a list of present chat members to the stream
-function outputUsers () {
-  var nick_string = nicks.length > 0 ? nicks.join(", ") : "(none)";
-  addMessage("users:", nick_string, new Date(), "notice");
+function showUsers () {
+  var users_string = users.length > 0 ? users.join(", ") : "(none)";
+  addMessage("users:", users_string, new Date(), "notice");
   return false;
 }
 
@@ -313,7 +314,7 @@ $(document).ready(function() {
     $("#entry").attr("value", ""); // clear the entry field.
   });
 
-  $("#usersLink").click(outputUsers);
+  $("#usersLink").click(showUsers);
 
   //try joining the chat when the user clicks the connect button
   $("#connectButton").click(function () {

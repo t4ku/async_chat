@@ -4,36 +4,10 @@ require "logger"
 require "ruby-debug"
 require "erb"
 require "json"
+require File.dirname(__FILE__) + "/message_broker"
 
-Debugger.start
 
-log = Logger.new(STDOUT)
-
-class Message
-  @@id = 0
-  attr_accessor :id,:text,:posted_at
-  
-  def initialize(text="hello,world")
-    @text = text
-    @posted_at = (Time.now.to_f * 1000).to_i
-    @id = @@id
-    @@id += 1
-  end
-  
-  def to_json(*a)
-    {
-      'id' =>  self.id,
-      'text' => self.text,
-      'posted_at' => self.posted_at
-    }.to_json(*a)
-  end
-  
-  def self.json_create(o)
-    new(*o['data'])
-  end
-end
-
-class AsyncTest < Sinatra::Base
+class ChatAsync < Sinatra::Base
   register Sinatra::Async
   
   enable :show_exceptions
@@ -51,7 +25,6 @@ class AsyncTest < Sinatra::Base
   end
   
   @@users = {}
-  @@messages = [Message.new]
   
   apost '/login' do
     logger.debug env["async.close"]
@@ -70,14 +43,53 @@ class AsyncTest < Sinatra::Base
     end 
   end
   
-  aget '/messages/all.json' do
+  # /messages.json
+  # => all messages since app started
+  
+  # /messages.json?since=1234
+  # => long-running response if there are no messages
+  # => return messages immediately if there's any
+  
+  aget '/messages.json' do
+    logger.info "message request since #{params[:since]}"
+    
     content_type :json
-    EM.add_timer(10){
-      body { {:messages => @@messages}.to_json }
-    }
+
+    # /messages.json?since=12345678
+    if params[:since]
+      msgs = MessageBroker.messages_since params[:since].to_i
+      
+      if msgs.size > 0
+        body { {:messages => msgs } }.to_json
+      else
+        EM.add_periodic_timer(1){
+          
+        }
+      end
+      
+    # /messages.json?from=1234&subscribe=true
+    # elsif params[:since] && params[:subscribe]
+    #   EM.add_periodic_timer(1) {
+    #     
+    #   }
+      
+    # /messages.json
+    # simply returns all the messages
+    else
+      body { {:messages => MessageBroker.messages }.to_json }
+    end
   end
   
-  apost '/message' do
+  apost '/message.json' do
+    text = params[:text]
+    user_name = request.cookie[:username]
+    msg = Message.new(text,user_name)
+    MessageBroker.add(msg)
+    
+    # publish
+    @@users.each do |user|
+      user.body { {:message => msg }.to_json }
+    end
   end
   
   aget '/login/:id' do
@@ -119,6 +131,6 @@ class AsyncTest < Sinatra::Base
   end
 end
 
-Rack::Handler::Thin.run AsyncTest.new,:Port => 3030 do |server|
+Rack::Handler::Thin.run ChatAsync.new,:Port => 3030 do |server|
   server.timeout = 0
 end
