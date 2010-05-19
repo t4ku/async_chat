@@ -24,22 +24,19 @@ class ChatAsync < Sinatra::Base
     end
   end
   
-  @@users = {}
-  
   apost '/login' do
     logger.debug env["async.close"]
     user_name = params[:user_name].to_sym
 
-    if @@users.include? user_name
-      body { "User name is already used!" }
-    else
+    if MessageBroker.add_user(user_name)
       logger.info "adding #{user_name} to connections"
       response.set_cookie("username",user_name)
-      @@users[user_name] = nil
       
       body {
-        erb :chat,:locals => { :connections => @@users }
+        erb :chat,:locals => { :connections => MessageBroker.users }
       }
+    else
+      body { "User name is already used!" }
     end 
   end
   
@@ -60,10 +57,13 @@ class ChatAsync < Sinatra::Base
       msgs = MessageBroker.messages_since params[:since].to_i
       
       if msgs.size > 0
-        body { {:messages => msgs } }.to_json
+        body { {:messages => msgs }.to_json }
       else
         EM.add_periodic_timer(1){
-          
+          next_msgs = MessageBroker.messages_since params[:since].to_i
+          if next_msgs.size > 0
+            body { {:messages => next_msgs}.to_json }
+          end
         }
       end
       
@@ -82,14 +82,13 @@ class ChatAsync < Sinatra::Base
   
   apost '/message.json' do
     text = params[:text]
-    user_name = request.cookie[:username]
+    user_name = request.cookies["username"]
     msg = Message.new(text,user_name)
     MessageBroker.add(msg)
     
+    body { { :messages => [msg]}.to_json }
     # publish
-    @@users.each do |user|
-      user.body { {:message => msg }.to_json }
-    end
+    # MessageBroker.publish_last_message
   end
   
   aget '/login/:id' do
@@ -104,31 +103,13 @@ class ChatAsync < Sinatra::Base
     
   end
   
-  aget '/release' do
-  end
-  
-  aget '/timer' do
-    i = 0
-    EM.add_periodic_timer(4) {
-    #  if i > 10
-    #    body { "yeah"}
-    #  end
-    #  i++
-      logger.debug "i is #{i}"
-    }
+  apost '/logout' do
+    username = request.cookies["username"]
+    logger.debug("part called :#{username}")
+    MessageBroker.remove_user(username)
+    body {}
   end
 
-  aget '/delay/:n' do |n|
-    #EM.add_timer(n.to_i) { body { "delayed for #{n} seconds" } }
-  end
-  
-  apost '/chat/' do |message|
-    
-  end
-
-  aget '/raise' do
-    raise 'boom'
-  end
 end
 
 Rack::Handler::Thin.run ChatAsync.new,:Port => 3030 do |server|
