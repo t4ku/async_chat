@@ -1,18 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="./css/master_chat.css" type="text/css"  charset="utf-8">
 	<title>chat</title>
 	<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/chat.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-	<%= connections %>
-	<div id="messages">
-		
+	<div id="main">
+		<div id="header">
+			<span class="large">Comet Chat</span>
+
+			<div id="menus">
+				<ul class="navigation"> 
+					<li><a href="./">Chat</a></li>
+					<li><a href="./links">API</a></li>
+					<li><a href="#">Source</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="content">
+			<div id="content-bar">
+
+			</div>
+			<div id="chatbox">
+				<div id="messages">
+
+				</div>
+				<div id="chat_entry">
+					<input type="text" id="entry"></input>
+				</div>
+			</div>			
+		</div>
+
+		<div class="footer">
+
+		</div>
 	</div>
-	<div id="chat_entry">
-		<input type="text" id="entry"></input>
-	</div>
-	
 </body>

@@ -1,14 +1,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title>welcome</title>	
-	<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="./css/master_chat.css" type="text/css"  charset="utf-8">
+	<title>Come chat</title>
 </head>
 <body>
-	<p>Top</p>
-	<form method="post" action="/login" >
-		<input id="user_name" name="user_name"></input>
-		<input type="submit" value="login"></input>
-	</form>	
+	<div id="main">
+		<div id="header">
+			<span class="large">Comet Chat</span>
+
+			<div id="menus">
+				<ul class="navigation"> 
+					<li><a href="./">Chat</a></li>
+					<li><a href="./links">API</a></li>
+					<li><a href="#">Source</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="content">
+			<div id="content-bar">
+
+			</div>
+			<div id="chatbox">
+				<h1>Login</h1>
+				<form method="post" action="/login" >
+					<lable>ユーザー名:</label>
+					<input id="user_name" name="user_name"></input>
+					<input type="submit" value="login"></input>
+				</form>	
+			</div>			
+		</div>
+
+		<div class="footer">
+
+		</div>
+	</div>
 </body>
