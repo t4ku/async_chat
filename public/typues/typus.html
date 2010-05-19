@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+
+
+
+  
+    <title>Typus - intraducibles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="google-site-verification" content="b1cf6FyP4IU8GkMiFD37jZqpMcrm7pNV9iX_15duNZw">
+<link href="typus_files/reset.css" media="screen" rel="stylesheet" type="text/css">
+<link href="typus_files/screen.css" media="screen" rel="stylesheet" type="text/css">
+<script src="typus_files/application.js" type="text/javascript"></script>
+
+  <style type="text/css">/**
+ * Highlight style classes
+ * .a background color
+ * .b underline
+ * .c underline + font color
+ */
+ 
+@media screen{
+em.diigoHighlight {
+	text-align:inherit;
+	text-decoration: inherit;
+	line-height:inherit;
+	font:inherit;
+	color:inherit;
+	display:inline;
+	position:relative;
+}
+em.diigoHighlight.a.mouseOvered {
+	background-color: #ffc62a !important;
+}	
+
+em.diigoHighlight.b.mouseOvered, em.diigoHighlight.c.mouseOvered {
+	border-bottom: solid 2px #ffc62a;
+}
+	
+em.diigoHighlight.c {
+	color: #000099;
+}
+em.diigoHighlight.c.mouseOvered {
+	color: #ffc62a;
+}	
+
+em.diigoHighlight.a.yellow {
+	background-color: #FF9;
+}
+
+em.diigoHighlight.b.yellow, em.diigoHighlight.c.yellow {
+	border-bottom: solid 2px #FF9;
+}
+	
+img.diigoHighlight.yellow {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #FF9;
+}
+	
+em.diigoHighlight.a.blue {
+	background-color: #ABD5FF;
+}
+
+em.diigoHighlight.b.blue, em.diigoHighlight.c.blue {
+	border-bottom: solid 2px #ABD5FF;
+}
+	
+img.diigoHighlight.blue {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #ABD5FF;
+}
+	
+	
+em.diigoHighlight.a.green {
+	background-color: #B2E57E;
+}
+
+em.diigoHighlight.b.green, em.diigoHighlight.c.green {
+	border-bottom: solid 2px #B2E57E;
+}
+
+img.diigoHighlight.green {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #B2E57E;
+}	
+	
+	
+em.diigoHighlight.a.pink {
+	background-color: #ffcccc;
+}
+
+em.diigoHighlight.b.pink, em.diigoHighlight.c.pink {
+	border-bottom: solid 2px #ffcccc;
+}
+	
+img.diigoHighlight.pink {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #ffcccc;
+}	
+	
+img.diigoHighlight.mouseOvered {
+	cursor: pointer; 
+	outline:2px solid #ffc62a;
+}	
+	
+
+div.diigotb-inline-cloud{
+	position:fixed !important;
+	width:440px !important;
+	height:370px !important;
+	left:0;top:0;
+	background-color:#fef5c7 !important;
+	z-index:9999999999 !important;
+	display:none;
+	-moz-border-radius:15px !important;
+}
+/*  capture image */
+
+#diigotb-upload-cover{
+	background:transparent url(chrome://diigotb/skin/cover.png) repeat scroll 0 0;
+	cursor:crosshair;
+	height:100%;
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:99999;
+}
+#diigotb-upload-box{
+  z-index: 190000; 
+  background: transparent url(chrome://diigotb/skin/cover.png) repeat scroll 0 0; 
+  border: 1px solid #fff;
+  position: absolute;
+  cursor: crosshair;
+}
+.diigotb-upload-result{
+  z-index: 100000; 
+  background: url(chrome://diigotb/skin/temp.png); 
+  border: 1px solid #000;
+  position:fixed;
+}		
+
+/*highlight label*/
+.diigoHighlight .diigoHighlightLabel sup {
+	font:normal normal normal 8px/8px "lucida grande",tahoma,verdana,arial,sans-serif;
+	text-decoration:none;
+	background-color:inherit;
+	cursor:default;
+}
+	
+body.diigoHiPen.yellow{
+	cursor:url(chrome://diigotb/skin/highlighter-orange.cur), text !important
+}
+	
+body.diigoHiPen.blue{
+	cursor:url(chrome://diigotb/skin/highlighter-blue.cur), text !important
+}
+
+body.diigoHiPen.green{
+	cursor:url(chrome://diigotb/skin/highlighter-green.cur), text !important
+}	
+	
+body.diigoHiPen.pink{
+	cursor:url(chrome://diigotb/skin/highlighter-pink.cur), text !important
+}
+em.diigoHighlight.type_0.commented {	
+	padding-left:30px;
+}
+	
+/*float note*/
+div.diigoHighlight.type_2 {
+	position:absolute;
+	width:29px;
+	height:36px;
+	text-align:center;
+	background:transparent url('chrome://diigotb/skin/float_icon.png') no-repeat 50% 50%;
+	z-index:9996;
+}
+div.diigoHighlight.type_2.mouseOvered {
+	position:absolute;
+	width:37px;
+	height:31px;
+	text-align:center;
+	background:transparent url('chrome://diigotb/skin/float_icon.png') no-repeat;
+	z-index:9996;
+}	
+div.diigoHighlight.type_2 span {
+	color:#000;
+	font:bold 13px Arial, Helvetica, sans-serif;
+	cursor: default;
+	line-height: 37px;
+	text-shadow: #fff 0 1px 0;
+}
+/*
+* html div.diigoHighlight.type_2{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale, src="http://www.diigo.com/javascripts/webtoolbar/images/float_icon.png");
+	overflow:hidden;
+	background:none;
+}
+*/
+	
+
+div.diigoIcon.commented.TextIcon.diigoEdit{
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+
+	
+div.diigoIcon.commented.ImageIcon.diigoEdit{
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+
+
+/*mouse over effect*/
+/*
+.diigoHighlight.id_190e5778b533dc0fa1b1660653a4f6f5 {outline: 2px dotted green !important;}
+*/
+div.diigoIcon{
+	cursor:pointer !important;
+	margin: 0pt; 
+	padding: 0px 0px 0px 0px;
+	position: absolute;
+	display:none;
+	width: 24px !important; 
+	z-index:999999;
+	height: 23px !important;
+	background: transparent url('chrome://diigotb/skin/edit-highlight.png') no-repeat left;
+}
+
+div.diigoIcon span{
+	color:#000000;
+	display:block;
+	font-family:Helvetica,Arial,sans-serif;
+	font-size:13px;
+	font-weight:700;
+	line-height:18px;
+	text-align:center;
+	text-shadow:0 1px 1px #FFFFFF;
+}
+
+div.diigoIcon.commented.ImageIcon{
+	display:block !important;
+	background-color: transparent !important;
+}
+	
+div.diigoIcon:hover{
+	background-background: transparent !important;
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+	
+div.diigoIcon.commented.TextIcon{
+	display:block !important;
+	left:0;
+	bottom:0;
+}
+	
+div.diigoIcon.commented.public{
+	background: #FFFFFF url('chrome://diigotb/skin/public-annotation.png') no-repeat left;
+}
+
+div.diigoIcon.commented.private{
+	background: #FFFFFF url('chrome://diigotb/skin/private-annotation.png') no-repeat left;
+}
+	
+div.diigoIcon.commented.group{
+	background: #FFFFFF url('chrome://diigotb/skin/group-annotation.png') no-repeat left;
+}
+	
+/*Clip video*/
+div.diigoClipVideo{
+	float:left;
+	height:16px;
+	padding:0 16px 0 6px;
+	background:#f5f5f5 url(chrome://diigotb/skin/toolbar-clip-bg.gif) no-repeat right 0;
+	border:1px solid #ccc;
+	border-bottom-width:0;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	z-index:999;
+	position:absolute;
+}
+
+div.diigoClipVideo.clipped {
+  background-position: right -32px; left: 717px; top: 135px;
+}
+
+	div.diigoClipVideo span{
+		font-weight:bold;
+		font-size:10px;
+		line-height:16px;
+		text-decoration:underline;
+		color:#03f;
+		cursor:pointer;
+		margin-right:6px
+	}
+	div.diigoClipVideo span:hover,div.diigoClipVideo span:active{
+		color:#00f
+	}
+	/*.diigolet input{
+		font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+		font-size:9px;
+	}*/
+}
+
+
+@media print{
+em.diigoHighlight.a, em.diigoHighlight.b, em.diigoHighlight.c {
+	border-bottom:0.5pt dashed Black;
+}
+
+
+/*image highlight*/
+/*no inline comments*/
+img.diigoHighlight {
+	border:0.5pt dashed Black
+}
+
+/*float note*/
+div.diigoHighlight.type_2 {
+	display:none
+}
+div.diigoHighlight.type_2 span {
+	display:none
+}
+}</style><style id="diigo-activeHighlight" type="text/css">dummyRuleForDigg{}</style></head><body>
+
+    <div id="wrapper">
+
+      <div id="header">
+        <h1><a href="http://intraducibles.com/">intraducibles.</a></h1>
+<h2><a href="http://intraducibles.com/">intraducibles</a> is a small web development agency in Barcelona. With <a href="http://rubyonrails.org/">Ruby on Rails</a> &amp; <a href="http://www.sinatrarb.com/">Sinatra</a> we create cutting edge web apps. We also do application deployment &amp; system administration.</h2>
+      </div>
+
+      <div id="content">
+        <div id="menu">
+        <ul>
+
+<!--
+
+  <li><a href="/about">About Us</a></li>
+  <li><a href="/work">Our Work</a></li>
+  <li><a href="/clients">Clients</a></li>
+  <li><a href="/articles">Articles</a></li>
+-->
+
+<!--
+  <li><a href="/blog">Blog</a></li>
+
+    
+
+-->
+
+  <li><a href="http://intraducibles.com/projects">Projects</a></li>
+
+    
+
+      <ul>
+        <li>Typus
+          
+          <ul>
+            <li><a href="http://intraducibles.com/projects/typus/install">Installation</a></li>
+            <li><a href="http://intraducibles.com/projects/typus/configuration">Configuration</a></li>
+            <li><a href="http://intraducibles.com/projects/typus/tips">Tips &amp; Tricks</a></li>
+            <li><a href="http://intraducibles.com/projects/typus/services">Services</a></li>
+            <li><a href="http://intraducibles.com/projects/typus/contribute">Contribute</a></li>
+            <li><a href="http://intraducibles.com/projects/typus/donate">Donate</a></li>
+            <li><a href="http://intraducibles.com/projects/typus/mit-license">MIT License</a></li>
+          </ul>
+          
+      </li></ul>
+
+    
+
+  <li><a href="http://intraducibles.com/contact">Contact Us</a></li>
+
+</ul>
+        </div>
+        <div id="body">
+          <h2>What is Typus?</h2>
+
+<p>A few years ago I developed websites using <a href="http://movabletype.org/">Movable Type</a>, <a href="http://drupal.com/">Drupal</a>, <a href="http://textpattern.com/">TextPattern</a> and <a href="http://b2evolution.net/">b2</a>, which later became <a href="http://wordpress.org/">Wordpress</a>. I decided to stop using all those content management systems and started to develop web applications with <a href="http://rubyonrails.org/">Ruby on Rails</a>.</p>
+
+<p>Inspired by the tools I used, and with a simple idea "Trusted users editing structured content", I started to develop a <a href="http://rubyonrails.org/">Rails</a>
+application to manage the sites I was building. This was the first
+attempt to make a simple but powerful content management system. I
+adapted that application to many projects, but I decided to extract the
+core functionality as a plugin which is now known a <strong>Typus</strong>.</p>
+
+<p><img src="typus_files/typus-screenshots-step2.png" title="Typus: Dashboard" alt="Typus: Dashboard"></p>
+
+<p>On December 2007, <strong>Typus</strong> was released under a <a href="http://intraducibles.com/projects/typus/mit-license">MIT License</a>. A lot of feedback, ideas, contributions &amp; donations are making the plugin better everyday.</p>
+
+<h3>Typus Key Features</h3>
+
+<ul>
+<li>Access control by users and roles.</li>
+<li>CRUD and custom actions for your models on a clean interface.</li>
+<li>Internationalized interface.</li>
+<li>Extensible and overwritable templates.</li>
+<li>Low memory footprint.</li>
+</ul>
+
+
+<h2>Impatients to see it working?</h2>
+
+<p>A demo is running at <a href="http://typus.heroku.com/">Heroku</a>. Use the following credentials to log in.</p>
+
+<pre><code>Email: user@intraducibles.com
+Password: columbia
+</code></pre>
+
+<h2>Want to quickly create an application on your development machine?</h2>
+
+<p>Note that Git &amp; Rails are required to make the application work.</p>
+
+<p><strong>Step 1: Create a Rails application using a template.</strong></p>
+
+<pre><code>$ rails example.com -m http://gist.github.com/86613.txt
+</code></pre>
+
+<p><strong>Step 2: Start the server.</strong></p>
+
+<pre><code>$ cd example.com &amp;&amp; script/server
+</code></pre>
+
+<p><strong>Step 3: Go to the admin area.</strong></p>
+
+<pre><code>http://0.0.0.0:3000/admin
+</code></pre>
+
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="footer">
+        <p>© 2008-2009 intraducibles.com · All Rights Reserved · <a href="http://intraducibles.com/contact">Contact Us</a></p>
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="typus_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-381030-8");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+  </body></html>

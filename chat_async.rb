@@ -6,7 +6,6 @@ require "erb"
 require "json"
 require File.dirname(__FILE__) + "/message_broker"
 
-
 class ChatAsync < Sinatra::Base
   register Sinatra::Async
   

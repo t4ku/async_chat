@@ -222,7 +222,7 @@ function send(msg) {
   if (CONFIG.debug === false) {
     // XXX should be POST
     // XXX should add to messages immediately
-    jQuery.get("/send", {id: CONFIG.id, text: msg}, function (data) { }, "json");
+    jQuery.post("/message.json", {id: CONFIG.id, text: msg}, function (data) { }, "json");
   }
 }
 
@@ -377,6 +377,6 @@ $(document).ready(function() {
 
 //if we can, notify the server that we're going away.
 $(window).unload(function () {
-  jQuery.get("/part", {id: CONFIG.id}, function (data) { }, "json");
+  jQuery.post("/logout", {id: CONFIG.id}, function (data) { }, "json");
 });
 
