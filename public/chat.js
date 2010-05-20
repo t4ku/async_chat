@@ -181,7 +181,6 @@ function longPoll (data) {
           userPart(message.username, message.timestamp);
           break;
       }
-		addMessage("Hoge",message.text,message.timestamp);
     }
     //update the document title to include unread message count if blurred
     updateTitle();
