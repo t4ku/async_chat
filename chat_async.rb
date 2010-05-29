@@ -111,6 +111,6 @@ class ChatAsync < Sinatra::Base
 
 end
 
-Rack::Handler::Thin.run ChatAsync.new,:Port => 3030 do |server|
-  server.timeout = 0
-end
+# Rack::Handler::Thin.run ChatAsync.new,:Port => 3030 do |server|
+#   server.timeout = 0
+# end
