@@ -7,10 +7,12 @@ class Message
     @timestamp = (Time.now.to_f * 1000).to_i
     @username = username
     @id = @@id
-	@type = "msg"
+	  @type = "msg"
     @@id += 1
   end
   
+  # 配列の引数(*a)をうまく使えば、messagesで複数のJSONを返せると思ったけど
+  # { :messages => msg }.to_jsonで用は足せてる
   def to_json(*a)
     {
       'id' =>  self.id,
@@ -36,13 +38,13 @@ class MessageBroker
     end
   end
   
-  def self.publish_last_message
-    @@users.each { |con|
-      if con
-          con.body { {:messages => @@messages.last}.to_json }
-      end
-    }
-  end
+  # def self.publish_last_message
+  #   @@users.each { |con|
+  #     if con
+  #         con.body { {:messages => @@messages.last}.to_json }
+  #     end
+  #   }
+  # end
   
   def self.users
     @@users

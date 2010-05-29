@@ -104,7 +104,7 @@ class ChatAsync < Sinatra::Base
   
   apost '/logout' do
     username = request.cookies["username"]
-    logger.debug("part called :#{username}")
+    logger.debug("logout called :#{username}")
     MessageBroker.remove_user(username)
     body {}
   end
