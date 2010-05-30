@@ -23,7 +23,7 @@ class ChatAsync < Sinatra::Base
     end
   end
   
-  apost '/login' do
+  post '/login' do
     logger.debug env["async.close"]
     user_name = params[:user_name].to_sym
 
@@ -31,11 +31,13 @@ class ChatAsync < Sinatra::Base
       logger.info "adding #{user_name} to connections"
       response.set_cookie("username",user_name)
       
-      body {
-        erb :chat,:locals => { :connections => MessageBroker.users }
-      }
+      erb :chat
+      
+      # body {
+      #   erb :chat,:locals => { :connections => MessageBroker.users }
+      # }
     else
-      body { "User name is already used!" }
+      puts  "User name is already used!" 
     end 
   end
   
@@ -94,23 +96,15 @@ class ChatAsync < Sinatra::Base
     id = params[:id]
   end
 
-  aget '/' do
-    body {
-      logger.debug "#{File.dirname(__FILE__)}"
-      erb :welcome
-    }
-    
+  get '/' do
+    erb :welcome    
   end
-  
-  apost '/logout' do
+    
+  post '/logout' do
     username = request.cookies["username"]
     logger.debug("logout called :#{username}")
     MessageBroker.remove_user(username)
-    body {}
+    puts "logged out"
   end
 
 end
-
-# Rack::Handler::Thin.run ChatAsync.new,:Port => 3030 do |server|
-#   server.timeout = 0
-# end
