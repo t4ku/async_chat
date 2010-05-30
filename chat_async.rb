@@ -9,10 +9,18 @@ require File.dirname(__FILE__) + "/message_broker"
 class ChatAsync < Sinatra::Base
   register Sinatra::Async
   
+  alias :original_call :call!
+  
+  def call!(env)
+    #debugger
+    self.original_call(env)    
+  end
+  
   enable :show_exceptions
   set :public => './public'
-  set :sessions, true
-  
+  #set :sessions, true
+  use Rack::Session::Cookie
+    
   configure do
     LOGGER = Logger.new(STDOUT) 
   end
@@ -21,6 +29,7 @@ class ChatAsync < Sinatra::Base
     def logger
       LOGGER
     end
+    
   end
   
   post '/login' do
@@ -29,15 +38,11 @@ class ChatAsync < Sinatra::Base
 
     if MessageBroker.add_user(user_name)
       logger.info "adding #{user_name} to connections"
-      response.set_cookie("username",user_name)
+      session[:user_name] = user_name
       
-      erb :chat
-      
-      # body {
-      #   erb :chat,:locals => { :connections => MessageBroker.users }
-      # }
+      erb :chat,:locals => { :connections => MessageBroker.users }
     else
-      puts  "User name is already used!" 
+      "User name is already used!" 
     end 
   end
   
@@ -49,8 +54,8 @@ class ChatAsync < Sinatra::Base
   # => return messages immediately if there's any
   
   aget '/messages.json' do
+    logger.info "#{session[:user_name]} requested messages"
     logger.info "message request since #{params[:since]}"
-    
     content_type :json
 
     # /messages.json?since=12345678
@@ -68,28 +73,18 @@ class ChatAsync < Sinatra::Base
         }
       end
       
-    # /messages.json?from=1234&subscribe=true
-    # elsif params[:since] && params[:subscribe]
-    #   EM.add_periodic_timer(1) {
-    #     
-    #   }
-      
-    # /messages.json
-    # simply returns all the messages
     else
       body { {:messages => MessageBroker.messages }.to_json }
     end
   end
   
-  apost '/message.json' do
+  post '/message.json' do
     text = params[:text]
-    user_name = request.cookies["username"]
+    user_name = session[:user_name]
     msg = Message.new(text,user_name)
     MessageBroker.add(msg)
     
-    body { { :messages => [msg]}.to_json }
-    # publish
-    # MessageBroker.publish_last_message
+    {:messages => [msg]}.to_json
   end
   
   aget '/login/:id' do
@@ -97,11 +92,12 @@ class ChatAsync < Sinatra::Base
   end
 
   get '/' do
+    session[:hoge] = "asdfw"
     erb :welcome    
   end
     
   post '/logout' do
-    username = request.cookies["username"]
+    username = session[:username]
     logger.debug("logout called :#{username}")
     MessageBroker.remove_user(username)
     puts "logged out"
