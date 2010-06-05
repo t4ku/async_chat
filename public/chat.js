@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	
 	var current_time = (new Date).getTime();
 	var CONFIG = { debug: false
 	             , username: "#"   // set in onConnect
@@ -47,7 +46,6 @@ $(document).ready(function() {
 	}
 
 	// utility functions
-
 	util = {
 	  urlRE: /https?:\/\/([-\w\.]+)+(:\d+)?(\/([^\s]*(\?\S+)?)?)?/g, 
 

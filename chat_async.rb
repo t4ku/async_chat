@@ -18,9 +18,8 @@ class ChatAsync < Sinatra::Base
   
   enable :show_exceptions
   set :public => './public'
-  #set :sessions, true
-  use Rack::Session::Cookie
-    
+  use Rack::Session::Cookie,:secret => "f34d2"
+  
   configure do
     LOGGER = Logger.new(STDOUT) 
   end
@@ -32,6 +31,24 @@ class ChatAsync < Sinatra::Base
     
   end
   
+  get '/' do
+    username = session[:user_name]
+    logger.info("username #{session[:user_name]}")
+    if username && (MessageBroker.users.keys.include? username.to_sym)
+      erb :chat,:locals => { :connections => MessageBroker.users }
+    else
+      erb :welcome
+    end
+  end
+    
+  post '/logout' do
+    username = session[:user_name]
+    logger.debug("logout called :#{user_name}")
+    MessageBroker.remove_user(username)
+    session[:user_name] = nil
+    puts "logged out"
+  end
+
   post '/login' do
     logger.debug env["async.close"]
     user_name = params[:user_name].to_sym
@@ -79,6 +96,8 @@ class ChatAsync < Sinatra::Base
   end
   
   post '/message.json' do
+    logger.debug "message sent from #{session[:user_name]}"
+    
     text = params[:text]
     user_name = session[:user_name]
     msg = Message.new(text,user_name)
@@ -86,21 +105,4 @@ class ChatAsync < Sinatra::Base
     
     {:messages => [msg]}.to_json
   end
-  
-  aget '/login/:id' do
-    id = params[:id]
-  end
-
-  get '/' do
-    session[:hoge] = "asdfw"
-    erb :welcome    
-  end
-    
-  post '/logout' do
-    username = session[:username]
-    logger.debug("logout called :#{username}")
-    MessageBroker.remove_user(username)
-    puts "logged out"
-  end
-
 end
