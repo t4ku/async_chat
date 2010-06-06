@@ -44,6 +44,10 @@ a{
 	font-size:40px;
 }
 
+#user_nav {
+	float:right;
+}
+
 #main{
 	margin:20px auto 0;
 	height:100%;
