@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title><%= h(yield(:title) || "Untitled") %></title>
+	<%= stylesheet_link_tag 'master_chat.css' %>
+
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="main">
+	  <div id="header">
+			<span class="large">Tascal</span>
+			<div id="menus">
+				<ul class="navigation">
+					<li><a href="/">Top</a><li>
+					<li><a href="/login">Demo</a></li>
+					<li><a href="./links">API</a></li>
+					<li><a href="#">Source</a></li>
+				</ul>
+			</div>
+	  </div>
+      <div id="user_nav">
+		<% if !current_user %>
+        	<%= link_to "Register", new_user_path %>
+			<%= link_to "Login", login_path %>
+		<% else %>
+			User Name :<%= current_user.login %>,<%= current_user.id %>
+			<%= link_to "Logout",logout_path %>
+		<% end %>
+      </div>
+      
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+      
+	<div id="content">
+		<%= yield %>
+	</div>
+	<div class="footer">
+
+	</div>
+	
+    </div>
+  </body>
+</html>
