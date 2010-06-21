@@ -46,6 +46,11 @@ a{
 
 #user_nav {
 	float:right;
+	margin:10px 0px;
+}
+
+#flash_notice {
+	margin:10px 0px;
 }
 
 #main{
@@ -55,6 +60,7 @@ a{
 	width:660px;
 	/*height:460px;*/
 }
+
 #content{
 	font-size:13px;
 	position:relative;
