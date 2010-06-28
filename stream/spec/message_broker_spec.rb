@@ -1,6 +1,7 @@
-require File.dirname(__FILE__) + "/../message_broker"
+require File.dirname(__FILE__) + "/../lib/message_broker"
 
 require "rubygems"
+require "spec"
 require "json"
 
 describe  Message do

@@ -1,32 +1,4 @@
-class Message
-  @@id = 0
-  attr_accessor :id,:username,:type,:text,:timestamp
-  
-  def initialize(text="welcome to",username="Comet chat")
-    @text = text
-    @timestamp = (Time.now.to_f * 1000).to_i
-    @username = username
-    @id = @@id
-	  @type = "msg"
-    @@id += 1
-  end
-  
-  # 配列の引数(*a)をうまく使えば、messagesで複数のJSONを返せると思ったけど
-  # { :messages => msg }.to_jsonで用は足せてる
-  def to_json(*a)
-    {
-      'id' =>  self.id,
-	  'username' => self.username,
-      'text' => self.text,
-	  'type' => self.type,
-      'timestamp' => self.timestamp
-    }.to_json(*a)
-  end
-  
-  def self.json_create(o)
-    new(*o['data'])
-  end
-end
+#require File.dirname(__FILE__) + "/ar_mysql"
 
 class MessageBroker
   @@messages = [Message.new()]
