@@ -5,6 +5,9 @@ require "ruby-debug"
 require "erb"
 require "json"
 
+RAILS_BASE_PATH=File.expand_path "./../tascal/"
+LIB_BASE_PATH=File.expand_path "./lib/"
+
 require File.dirname(__FILE__) + "/lib/ar_mysql"
 
 class ChatAsync < Sinatra::Base
