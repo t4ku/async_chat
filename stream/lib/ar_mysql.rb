@@ -2,14 +2,18 @@ require "rubygems"
 require "sinatra/base"
 require "active_record"
 
+LIB_BASE_PATH="/Users/ookawataku/Documents/github/ruby/async_chat/stream/lib/"
+RAILS_BASE_PATH = "/Users/ookawataku/Documents/github/ruby/async_chat/tascal/"
+
+
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
-  :database => File.expand_path('./../../tascasl/db/development.sqlite3')
+  :database => File.expand_path(RAILS_BASE_PATH + 'db/development.sqlite3')
 )
 
-require File.expand_path('./message')
-require File.expand_path('./user')
-require File.expand_path('./message_broker')
+require File.expand_path(RAILS_BASE_PATH + "app/models/message")
+require File.expand_path(LIB_BASE_PATH + 'user')
+require File.expand_path(LIB_BASE_PATH + 'message_broker')
 
 module Sinatra
   module ArMySql

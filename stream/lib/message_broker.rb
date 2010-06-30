@@ -1,5 +1,4 @@
 #require File.dirname(__FILE__) + "/ar_mysql"
-
 class MessageBroker
   @@messages = [Message.new()]
   @@users = {}
