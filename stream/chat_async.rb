@@ -28,38 +28,42 @@ class ChatAsync < Sinatra::Base
   end
       
   aget '/messages.json' do
-    logger.info "#{session[:user_name]} requested messages"
-    logger.info "message request since #{params[:since]}"
-    content_type :json
+    if authenticated?(params[:api_key])
+      logger.info "#{session[:user_name]} requested messages"
+      logger.info "message request since #{params[:since]}"
+      content_type :json
 
-    # /messages.json?since=12345678
-    if params[:since]
-      msgs = MessageBroker.messages_since params[:since].to_i
+      # /messages.json?since=12345678
+      if params[:since]
+        msgs = MessageBroker.messages_since params[:since].to_i
       
-      if msgs.size > 0
-        body { {:messages => msgs }.to_json }
+        if msgs.size > 0
+          body { {:messages => msgs }.to_json }
+        else
+          EM.add_periodic_timer(1){
+            next_msgs = MessageBroker.messages_since params[:since].to_i
+            if next_msgs.size > 0
+              body { {:messages => next_msgs}.to_json }
+            end
+          }
+        end
+      
       else
-        EM.add_periodic_timer(1){
-          next_msgs = MessageBroker.messages_since params[:since].to_i
-          if next_msgs.size > 0
-            body { {:messages => next_msgs}.to_json }
-          end
-        }
+        body { {:messages => MessageBroker.messages }.to_json }
       end
-      
-    else
-      body { {:messages => MessageBroker.messages }.to_json }
     end
   end
   
   post '/message.json' do
-    logger.debug "message sent from #{session[:user_name]}"
+    if authenticated?(params[:api_key])
+      logger.debug "message sent from #{session[:user_name]}"
     
-    text = params[:text]
-    user_name = session[:user_name]
-    msg = Message.new(text,user_name)
-    MessageBroker.add(msg)
+      text = params[:text]
+      user_name = session[:user_name]
+      msg = Message.new(text,user_name)
+      MessageBroker.add(msg)
     
-    {:messages => [msg]}.to_json
+      {:messages => [msg]}.to_json
+    end
   end
 end

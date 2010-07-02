@@ -18,6 +18,10 @@ module Sinatra
     def authenticated?(api_key)
       return User.find_by_single_access_token(api_key) ? true : false
     end
+    def login_name(api_key)
+      user = User.find_by_single_access_token(api_key)
+      user ? user.login : nil
+    end
   end
   
   helpers ArMySql 

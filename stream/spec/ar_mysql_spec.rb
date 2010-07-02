@@ -19,6 +19,10 @@ describe Sinatra::ArMySql do
     @test_instance.authenticated?(@valid_user.single_access_token).should be_true
   end
   
+  it "should return login name with single_access_token" do
+    @test_instance.login_name(@valid_user.single_access_token).should == @valid_user.login
+  end
+  
   after(:all) do
     if @valid_user
       @valid_user.destroy

@@ -1,6 +1,15 @@
 #require File.dirname(__FILE__) + "/ar_mysql"
+
+class UserActivity
+  attr_accessor :timestamp,:login
+  
+  def initialize(login,timestamp=nil)
+    @timestamp = timestamp || Time.now.to_f * 100
+    @login = login
+  end
+end
+
 class MessageBroker
-  @@messages = [Message.new()]
   @@users = {}
   
   def self.messages_since(timestamp)
@@ -21,21 +30,9 @@ class MessageBroker
     @@users
   end
   
-  def self.add_user(username)
-    if @@users.include? username
-      false
-    else
-      @@users[username.to_sym] = nil
-      true
-    end
-  end
-  
-  def self.remove_user(username)
-    if @@users.include? username
-      @@users.delete_if {|user,con| user == username.to_sym }
-    end
-  end
+  def self.add_activity(login)
     
+  end    
   
   def self.add(msg)
     @@messages << msg
