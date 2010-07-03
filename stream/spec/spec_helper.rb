@@ -17,4 +17,6 @@
 
 
 require 'rubygems'
-require "lib/ar_mysql"
+#require "lib/ar_mysql"
+
+Dir["lib/*.rb"].each {|file| require File.expand_path file }
