@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	var current_time = (new Date).getTime();
 	var CONFIG = { debug: false
-	             , username: "#"   // set in onConnect
 				 , token:api_key
 	             , id: null    // set in onConnect
 	             , last_message_time: current_time
@@ -11,46 +10,11 @@ $(document).ready(function() {
 
 	var users = [];
 
-	//updates the users link to reflect the number of active users
-	function updateUsersLink ( ) {
-	  var t = users.length.toString() + " user";
-	  if (users.length != 1) t += "s";
-	  $("#usersLink").text(t);
-	}
-
-	//handles another person joining chat
-	function userJoin(username, timestamp) {
-	  //put it in the stream
-	  addMessage(username, "joined", timestamp, "join");
-	  //if we already know about this user, ignore it
-	  for (var i = 0; i < users.length; i++)
-	    if (users[i] == nick) return;
-	  //otherwise, add the user to the list
-	  users.push(username);
-	  //update the UI
-	  updateUsersLink();
-	}
-
-	//handles someone leaving
-	function userPart(username, timestamp) {
-	  //put it in the stream
-	  addMessage(username, "left", timestamp, "part");
-	  //remove the user from the list
-	  for (var i = 0; i < nicks.length; i++) {
-	    if (users[i] == nick) {
-	      users.splice(i,1)
-	      break;
-	    }
-	  }
-	  //update the UI
-	  updateUsersLink();
-	}
-
-	// utility functions
+	// ユーティリティ
 	util = {
 	  urlRE: /https?:\/\/([-\w\.]+)+(:\d+)?(\/([^\s]*(\?\S+)?)?)?/g, 
 
-	  //  html sanitizer 
+	  // 簡易htmlサニタイズ
 	  toStaticHTML: function(inputHtml) {
 	    inputHtml = inputHtml.toString();
 	    return inputHtml.replace(/&/g, "&amp;")
@@ -58,10 +22,7 @@ $(document).ready(function() {
 	                    .replace(/>/g, "&gt;");
 	  }, 
 
-	  //pads n with zeros on the left,
-	  //digits is minimum length of output
-	  //zeroPad(3, 5); returns "005"
-	  //zeroPad(2, 500); returns "500"
+	  // 数字の左に0をつめる
 	  zeroPad: function (digits, n) {
 	    n = n.toString();
 	    while (n.length < digits) 
@@ -69,31 +30,22 @@ $(document).ready(function() {
 	    return n;
 	  },
 
-	  //it is almost 8 o'clock PM here
-	  //timeString(new Date); returns "19:49"
+	  // 時刻表示
+	  //timeString(new Date); => "19:49"
 	  timeString: function (date) {
 	    var minutes = date.getMinutes().toString();
 	    var hours = date.getHours().toString();
 	    return this.zeroPad(2, hours) + ":" + this.zeroPad(2, minutes);
 	  },
 
-	  //does the argument only contain whitespace?
+	  // 空白チェック
 	  isBlank: function(text) {
 	    var blank = /^\s*$/;
 	    return (text.match(blank) !== null);
 	  }
 	};
 
-	//used to keep the most recent messages visible
-	function scrollDown () {
-	  //window.scrollBy(0, 100000000000000000);
-	  $("#entry").focus();
-	}
-
-	//inserts an event into the stream for display
-	//the event may be a msg, join or part type
-	//from is the user, text is the body and time is the timestamp, defaulting to now
-	//_class is a css class to apply to the message, usefull for system events
+	// チャットにメッセージを表示
 	function addMessage (from, text, time, _class) {
 	  if (text === null)
 	    return;
@@ -106,17 +58,14 @@ $(document).ready(function() {
 	    time = new Date(time);
 	  }
 
-	  //every message you see is actually a table with 3 cols:
-	  //  the time,
-	  //  the person who caused the event,
-	  //  and the content
+	　　// メッセージ用DOM
 	  var messageElement = $(document.createElement("div"));
 
 	  messageElement.addClass("message");
 	  if (_class)
 	    messageElement.addClass(_class);
 
-	  // sanitize
+	  // テキスト
 	  text = util.toStaticHTML(text);
 
 	  // If the current user said this, add a special css class
@@ -139,7 +88,6 @@ $(document).ready(function() {
 	  $("#messages").prepend(messageElement);
 
 	  //always view the most recent message when it is added
-	  scrollDown();
 	}
 
 	var transmission_errors = 0;
@@ -173,14 +121,6 @@ $(document).ready(function() {
 	            CONFIG.unread++;
 	          }
 	          addMessage(message.username, message.text, message.timestamp);
-	          break;
-
-	        case "join":
-	          userJoin(message.username, message.timestamp);
-	          break;
-
-	        case "part":
-	          userPart(message.username, message.timestamp);
 	          break;
 	      }
 	    }
@@ -257,7 +197,6 @@ $(document).ready(function() {
 	  $("#connect").hide();
 	  $("#loading").hide();
 
-	  scrollDown();
 	}
 
 	//handle the server's response to our nickname and join request
@@ -346,7 +285,6 @@ $(document).ready(function() {
   if (CONFIG.debug) {
     $("#loading").hide();
     $("#connect").hide();
-    scrollDown();
     return;
   }
 
