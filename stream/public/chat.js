@@ -1,3 +1,4 @@
+// abc
 $(document).ready(function() {
 	var current_time = (new Date).getTime();
 	var CONFIG = { debug: false
@@ -193,9 +194,9 @@ $(document).ready(function() {
 	  //make another request
 	  $.ajax({ cache: false
 	         , type: "GET"
-	         , url: "/messages.json"
+	         , url: "http://localhost:3000/messages.json"
 	         , dataType: "json"
-	         , data: first_poll ? {} : { since: CONFIG.last_message_time, id: CONFIG.id }
+	         , data: first_poll ? {} : { since: CONFIG.last_message_time, id: CONFIG.id,api_key:api_key }
 	         , error: function () {
 	             addMessage("", "long poll error. trying again...", new Date(), "error");
 	             transmission_errors += 1;

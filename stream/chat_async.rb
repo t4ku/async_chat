@@ -27,10 +27,8 @@ class ChatAsync < Sinatra::Base
     
   end
       
-  aget '/messages.json' do
+  aget '/stream/messages.json' do
     if authenticated?(params[:api_key])
-      logger.info "#{session[:user_name]} requested messages"
-      logger.info "message request since #{params[:since]}"
       content_type :json
 
       # /messages.json?since=12345678
@@ -51,19 +49,25 @@ class ChatAsync < Sinatra::Base
       else
         body { {:messages => MessageBroker.messages }.to_json }
       end
+    else
+      logger.debug "unauthenticated request"
     end
   end
   
-  post '/message.json' do
+  post '/stream/message.json' do
     if authenticated?(params[:api_key])
-      logger.debug "message sent from #{session[:user_name]}"
-    
+      
+      user = User.find_by_single_access_token(params[:api_key])
       text = params[:text]
-      user_name = session[:user_name]
-      msg = Message.new(text,user_name)
-      MessageBroker.add(msg)
+      
+      logger.debug "message user: #{user.login} text: #{text}"
+      
+      msg = Message.new(:text=>text,:user => user)
+      MessageBroker.add_message(msg)
     
       {:messages => [msg]}.to_json
+    else
+      logger.debug "unauthenticated request"
     end
   end
 end

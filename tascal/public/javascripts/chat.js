@@ -2,6 +2,7 @@ $(document).ready(function() {
 	var current_time = (new Date).getTime();
 	var CONFIG = { debug: false
 	             , username: "#"   // set in onConnect
+				 , token:api_key
 	             , id: null    // set in onConnect
 	             , last_message_time: current_time
 	             , focus: true //event listeners bound in onConnect
@@ -193,9 +194,10 @@ $(document).ready(function() {
 	  //make another request
 	  $.ajax({ cache: false
 	         , type: "GET"
-	         , url: "/messages.json"
+	         , url:  "/stream/messages.json"
 	         , dataType: "json"
-	         , data: first_poll ? {} : { since: CONFIG.last_message_time, id: CONFIG.id }
+	         //, data: first_poll ? {} : { api_key:token,since: CONFIG.last_message_time, id: CONFIG.id }
+			 , data: { api_key:CONFIG.token,since: CONFIG.last_message_time, id: CONFIG.id }
 	         , error: function () {
 	             addMessage("", "long poll error. trying again...", new Date(), "error");
 	             transmission_errors += 1;
@@ -219,7 +221,16 @@ $(document).ready(function() {
 	  if (CONFIG.debug === false) {
 	    // XXX should be POST
 	    // XXX should add to messages immediately
-	    jQuery.post("/message.json", {id: CONFIG.id, text: msg}, function (data) { }, "json");
+	    jQuery.post("/stream/message.json",
+	 				{api_key:CONFIG.token,id: CONFIG.id, text: msg}, 
+					function (data) { 
+						console.log(data);
+						if (data && data.messages) {
+							sent_msg = data.messages[0];
+							addMessage(sent_msg.user_id,sent_msg.text,sent_msg.updated_at);
+						};
+					},
+					"json");
 	  }
 	}
 
@@ -359,9 +370,3 @@ $(document).ready(function() {
 
   showConnect();
 });
-
-//if we can, notify the server that we're going away.
-$(window).unload(function () {
-  jQuery.post("/logout", {id: CONFIG.id}, function (data) { }, "json");
-});
-

@@ -229,3 +229,2029 @@ Migrating to CreateMessage (20100630114047)
 [0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("messages")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM "messages" [0m
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM "messages" [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mMessage Load (4.7ms)[0m   [0mSELECT * FROM "messages" [0m
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 8) LIMIT 1[0m
+  [4;35;1mMessage Load (0.4ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 8) LIMIT 1[0m
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 8) LIMIT 1[0m
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."id" = 8) LIMIT 1[0m
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."id" = 8) LIMIT 1[0m
+  [4;35;1mMessage Load (1.1ms)[0m   [0mSELECT * FROM "messages" WHERE (created_at > '2010-07-03 17:54:26') [0m
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE (created_at > '2010-07-03 17:56:38') [0m
+  [4;35;1mMessage Load (0.3ms)[0m   [0mSELECT * FROM "messages" WHERE (created_at > '2010-07-03 17:56:43') [0m
+  [4;36;1mMessage Load (0.3ms)[0m   [0;1mSELECT * FROM "messages" WHERE (created_at > '2010-07-03 17:57:04') [0m
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:09:59) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+Redirected to http://0.0.0.0:30001/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 65ms (DB: 0) | 302 Found [http://0.0.0.0/chat]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-03 18:09:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 42ms (View: 26, DB: 0) | 200 OK [http://0.0.0.0/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-03 18:10:08) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"test_user"}, "action"=>"create", "authenticity_token"=>"+6QwqToRcXsJDvig5Y6ns/p3DgMf9MXtrALCNChiwZM=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'test_user') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 296ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-03 18:10:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 19ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/login]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" [0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-03 18:10:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (3.2ms)
+Completed in 34ms (View: 19, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-03 18:10:49) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"+6QwqToRcXsJDvig5Y6ns/p3DgMf9MXtrALCNChiwZM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"test_user", "email"=>"test_user@example.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test_user@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'test_user') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'GckM_3zupZk9IciIaaOa') LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("single_access_token", "last_request_at", "created_at", "crypted_password", "perishable_token", "updated_at", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "persistence_token", "login_count", "last_login_ip", "login", "last_login_at", "email") VALUES('GckM_3zupZk9IciIaaOa', '2010-07-03 09:10:49', '2010-07-03 09:10:49', 'f80d83320b70285040cf77b6cc03488f52180b3e77c154d636c6af8e595d49c41a91e2eea027d53619e9f0dec5d4cceb2ec0aba2a3588a2cc0b7ab30446a13b0', 'mBjjMt0HZyPZNF7EnrfH', '2010-07-03 09:10:49', 0, '127.0.0.1', 'XAdX1womQOayoRrD8Fto', '2010-07-03 09:10:49', '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66', 1, NULL, 'test_user', NULL, 'test_user@example.com')[0m
+Redirected to http://0.0.0.0:30001/chat
+Completed in 347ms (DB: 1) | 302 Found [http://0.0.0.0/account]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:10:49) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (46.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:10:49', "perishable_token" = 'nWhN-P5CQN1VhehA7PRr', "last_request_at" = '2010-07-03 09:10:49' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 116ms (View: 45, DB: 47) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:11:07) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (1.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:11:07', "perishable_token" = 'v1dYGfEV5D-JW1Lv22p5', "last_request_at" = '2010-07-03 09:11:07' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 105ms (View: 1, DB: 2) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:29:24) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (31.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:29:24', "perishable_token" = 'aM1WBmFCo8PAHy05QfFs', "last_request_at" = '2010-07-03 09:29:24' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x1042b3e00>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (137.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:30:16) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:30:16', "perishable_token" = 'K2tybxahqYyKFKIBmSxU', "last_request_at" = '2010-07-03 09:30:16' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x10430a818>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:30:17) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:30:17', "perishable_token" = 'LwGrX-8hFKjJQVpScSv1', "last_request_at" = '2010-07-03 09:30:17' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x103f91330>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:31:23) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (35.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:31:23', "perishable_token" = 'sdwKszsbFrX8XZ0GPjPG', "last_request_at" = '2010-07-03 09:31:23' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x10403b628>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (48.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:31:26) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:31:26', "perishable_token" = '6l68Zw5gAO_QbpB0tzyD', "last_request_at" = '2010-07-03 09:31:26' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x1040a1338>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (127.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:31:27) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:31:27', "perishable_token" = 'vyddqDhY3JjiJn7JkI-f', "last_request_at" = '2010-07-03 09:31:27' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x1041b9270>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (126.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:31:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:31:40', "perishable_token" = '9-_Zk5WowL_6v8yEKhE6', "last_request_at" = '2010-07-03 09:31:40' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x1043cc288>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.9ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:31:45) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:31:45', "perishable_token" = '_y7JgmrnIuJ0tTFGAw0v', "last_request_at" = '2010-07-03 09:31:45' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x1042a7920>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:4:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:32:44) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:32:44', "perishable_token" = '4YTEwLTUB46H3J2Y3CFA', "last_request_at" = '2010-07-03 09:32:44' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (undefined local variable or method `api_key' for #<ActionView::Base:0x1043bd4e0>) on line #3 of app/views/chat/show.html.erb:
+1: <% content_for :head do -%>
+2: 	<script type="text/javascript">
+3: 		api_key = <%= api_key %>
+4: 	</script>
+5: <% end -%>
+6: <h1>Chat</h1>
+
+    app/views/chat/show.html.erb:3
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:5:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (115.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:32:50) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:32:50', "perishable_token" = 'q96yyjA40F-NnqOg4ed1', "last_request_at" = '2010-07-03 09:32:50' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 75ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:33:25) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:33:25', "perishable_token" = '_ZZObL-drNlm-vHLYz7X', "last_request_at" = '2010-07-03 09:33:25' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 85ms (View: 6, DB: 2) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:33:28) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:33:28', "perishable_token" = 'keFA456E_-Qyx9tau_JH', "last_request_at" = '2010-07-03 09:33:28' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 131ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:33:49) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:33:49', "perishable_token" = 'eR1YNafdcMCovJ4M_qdH', "last_request_at" = '2010-07-03 09:33:49' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 46ms (View: 5, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:33:56) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (1.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:33:56', "perishable_token" = 'cq8eR2_WV1fGUsJ4xNT-', "last_request_at" = '2010-07-03 09:33:56' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 33ms (View: 2, DB: 2) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:34:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:34:01', "perishable_token" = 'lK-QVRQEK8y7M1kOxbc0', "last_request_at" = '2010-07-03 09:34:01' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:35:03) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:35:03', "perishable_token" = 'd8p2afdxe2YSkY1R07wx', "last_request_at" = '2010-07-03 09:35:03' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+
+ActionView::TemplateError (No expansion found for :chat) on line #5 of app/views/chat/show.html.erb:
+2: 	<script type="text/javascript">
+3: 		api_key = "<%= @api_key %>"
+4: 	</script>
+5: 	<%= javascript_include_tag :chat, :cache => false %>
+6: <% end -%>
+7: <h1>Chat</h1>
+8: 		<div id="chatbox">
+
+    app/views/chat/show.html.erb:5
+    app/views/chat/show.html.erb:1
+    app/controllers/chat_controller.rb:5:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (60.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:36:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:36:40', "perishable_token" = 'KL5ymIDacQRiIF_1SCsH', "last_request_at" = '2010-07-03 09:36:40' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 107ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:38:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:38:02', "perishable_token" = 'UX0cMMRsal6yFwVSw8hV', "last_request_at" = '2010-07-03 09:38:02' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 38ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:38:02) [GET]
+  Parameters: {"_"=>"1278149882602"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:38:12) [GET]
+  Parameters: {"_"=>"1278149892749"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:38:22) [GET]
+  Parameters: {"_"=>"1278149902788"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:38:50) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:38:51', "perishable_token" = 'ncWJntZBhaFz3WxBUpi_', "last_request_at" = '2010-07-03 09:38:51' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:38:51) [GET]
+  Parameters: {"_"=>"1278149931330"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:39:01) [GET]
+  Parameters: {"_"=>"1278149941636"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:39:11) [GET]
+  Parameters: {"_"=>"1278149951706"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-03 18:40:37) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '5cdebd52cc5ae13831cd99ec6eca4e8e9c83c7425e93c40d58bc02240a5e4be22cefc010359fbacab9c42ecaa1dceb3bef686a9518987aebaf939a960b309a66') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 09:40:37', "perishable_token" = 'AZo2v6bhhc4XmVPdjICx', "last_request_at" = '2010-07-03 09:40:37' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 31ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:40:38) [GET]
+  Parameters: {"_"=>"1278150038826"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:40:49) [GET]
+  Parameters: {"_"=>"1278150048980"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:40:57) [POST]
+  Parameters: {"text"=>"slightly stupid", "id"=>"null"}
+
+ActionController::RoutingError (No route matches "/message.json" with {:method=>:post}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-03 18:40:59) [GET]
+  Parameters: {"_"=>"1278150059017"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:22:18) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+Redirected to http://localhost:30001/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 39ms (DB: 0) | 302 Found [http://localhost/chat]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 00:22:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 23ms (View: 9, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-04 00:22:24) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"test_user"}, "action"=>"create", "authenticity_token"=>"Yvni3wnYh+Gh7YUXqkTZdpDfPOVfV+5PKrpWsrgtRnk=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'test_user') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-07-03 15:22:24', "perishable_token" = '-lqCC880svw9GXEoicsQ', "last_request_at" = '2010-07-03 15:22:24', "last_login_at" = '2010-07-03 09:10:49', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-07-03 15:22:24' WHERE "id" = 125[0m
+Redirected to http://localhost:30001/chat
+Completed in 224ms (DB: 1) | 302 Found [http://localhost/user_session]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:22:24) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:22:25', "perishable_token" = 'VHIoXk4wo1_AQPAadx7x', "last_request_at" = '2010-07-03 15:22:25' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 25ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:22:25) [GET]
+  Parameters: {"_"=>"1278170545617"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:22:35) [GET]
+  Parameters: {"_"=>"1278170555749"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:22:45) [GET]
+  Parameters: {"_"=>"1278170565797"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:25:58) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (313.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:25:58', "perishable_token" = 'pUZuNKdkJnqTQl3uwxDp', "last_request_at" = '2010-07-03 15:25:58' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 340ms (View: 2, DB: 314) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:25:59) [GET]
+  Parameters: {"_"=>"1278170759085"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:26:09) [GET]
+  Parameters: {"_"=>"1278170769237"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:26:19) [GET]
+  Parameters: {"_"=>"1278170779279"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:27:00) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:27:00', "perishable_token" = 'gxSbVyn67NnrQ186DFRr', "last_request_at" = '2010-07-03 15:27:00' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 53ms (View: 2, DB: 2) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:27:01) [GET]
+  Parameters: {"_"=>"1278170821141"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:27:11) [GET]
+  Parameters: {"_"=>"1278170831326"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:27:23) [GET]
+  Parameters: {"_"=>"1278170843625"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:30:26) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:30:26', "perishable_token" = '2LlAoxot0lj_AfduoN7j', "last_request_at" = '2010-07-03 15:30:26' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 34ms (View: 8, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:30:26) [GET]
+  Parameters: {"_"=>"1278171026912"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:30:37) [GET]
+  Parameters: {"_"=>"1278171037028"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:30:47) [GET]
+  Parameters: {"_"=>"1278171047072"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:32:18) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (1.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:32:18', "perishable_token" = 'pjTwIq2D_e-GoB-q4Pj8', "last_request_at" = '2010-07-03 15:32:18' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 31ms (View: 3, DB: 2) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:32:19) [GET]
+  Parameters: {"_"=>"1278171139493"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:32:29) [GET]
+  Parameters: {"_"=>"1278171149607"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:32:39) [GET]
+  Parameters: {"_"=>"1278171159649"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:33:27) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:33:27', "perishable_token" = '1TPbunbfv7u43tdWWWbZ', "last_request_at" = '2010-07-03 15:33:27' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:33:28) [GET]
+  Parameters: {"_"=>"1278171208044"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:33:38) [GET]
+  Parameters: {"_"=>"1278171218180"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:33:47) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:33:47', "perishable_token" = 'VZx-XrxQfeSK7biTkmQi', "last_request_at" = '2010-07-03 15:33:47' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 3, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:33:47) [GET]
+  Parameters: {"_"=>"1278171227680"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:33:57) [GET]
+  Parameters: {"_"=>"1278171237796"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:34:07) [GET]
+  Parameters: {"_"=>"1278171247841"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:34:12) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:34:12', "perishable_token" = 'y4e_HgY8_V5gkU9sObnZ', "last_request_at" = '2010-07-03 15:34:12' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 107ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:34:12) [GET]
+  Parameters: {"_"=>"1278171252868"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:34:23) [GET]
+  Parameters: {"_"=>"1278171263005"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:34:33) [GET]
+  Parameters: {"_"=>"1278171273380"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:35:56) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:35:56', "perishable_token" = 'SyJFa_BTR0__mU_o2m-7', "last_request_at" = '2010-07-03 15:35:56' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 31ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:35:57) [GET]
+  Parameters: {"_"=>"1278171357099"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:36:07) [GET]
+  Parameters: {"_"=>"1278171367236"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:36:17) [GET]
+  Parameters: {"_"=>"1278171377357"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:39:12) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:39:12', "perishable_token" = 'GEW_geAwURc5zBuQXTlB', "last_request_at" = '2010-07-03 15:39:12' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:39:13) [GET]
+  Parameters: {"_"=>"1278171553619"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:39:23) [GET]
+  Parameters: {"_"=>"1278171563783"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:39:33) [GET]
+  Parameters: {"_"=>"1278171573846"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:39:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:39:41', "perishable_token" = 'F0ADG7m34MwFiEAK1pkk', "last_request_at" = '2010-07-03 15:39:41' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 102ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:39:42) [GET]
+  Parameters: {"_"=>"1278171582404"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:39:50) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:39:50', "perishable_token" = 'r-oH-kDPmBIuiXbJ5vSB', "last_request_at" = '2010-07-03 15:39:50' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:39:50) [GET]
+  Parameters: {"_"=>"1278171590717"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:40:00) [GET]
+  Parameters: {"_"=>"1278171600853"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:40:10) [GET]
+  Parameters: {"_"=>"1278171610897"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:40:28) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:40:28', "perishable_token" = 'D-6wlTCNpgEaMnCJfI5u', "last_request_at" = '2010-07-03 15:40:28' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 156ms (View: 12, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:40:28) [GET]
+  Parameters: {"_"=>"1278171628819"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:40:38) [GET]
+  Parameters: {"_"=>"1278171638963"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:41:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:41:01', "perishable_token" = 'o8eBSAh5Ppla7QhbgVnB', "last_request_at" = '2010-07-03 15:41:01' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 24ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:41:02) [GET]
+  Parameters: {"_"=>"1278171662178"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:41:12) [GET]
+  Parameters: {"_"=>"1278171672308"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:41:22) [GET]
+  Parameters: {"_"=>"1278171682352"}
+
+ActionController::RoutingError (No route matches "/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:43:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:43:01', "perishable_token" = 'ntv0hT_-QnZ8XLw-MX2J', "last_request_at" = '2010-07-03 15:43:01' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 98ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:43:02) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:43:02', "perishable_token" = 'A1YhrZD33kLHKCUcc1ZL', "last_request_at" = '2010-07-03 15:43:02' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 26ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:43:12) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:43:12', "perishable_token" = '1ZNr7ncY5rXXiSiPofQz', "last_request_at" = '2010-07-03 15:43:12' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 164ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:43:22) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:43:22', "perishable_token" = 'a1ee9UDfQT0kvOSn50Sg', "last_request_at" = '2010-07-03 15:43:22' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 89ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:44:23) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:44:23', "perishable_token" = 'EO3VOMRp2YPyNBv_3lF3', "last_request_at" = '2010-07-03 15:44:23' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 3, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:45:20) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:45:20', "perishable_token" = 'TLOvQlr_hmMdTUPMKpMY', "last_request_at" = '2010-07-03 15:45:20' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 30ms (View: 3, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:49:33) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:49:33', "perishable_token" = '3EGi5ORAf19LqnzaFBaW', "last_request_at" = '2010-07-03 15:49:33' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:49:33) [GET]
+  Parameters: {"_"=>"1278172173934"}
+
+ActionController::RoutingError (No route matches "/stream/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:49:44) [GET]
+  Parameters: {"_"=>"1278172184070"}
+
+ActionController::RoutingError (No route matches "/stream/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:49:54) [GET]
+  Parameters: {"_"=>"1278172194113"}
+
+ActionController::RoutingError (No route matches "/stream/messages.json" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:53:47) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:53:47', "perishable_token" = 'a9qeKFo2JDt9aKIfc5h0', "last_request_at" = '2010-07-03 15:53:47' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 124ms (View: 13, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:56:58) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:56:58', "perishable_token" = 'Mx_f-H7NEE_XXVw7vcgv', "last_request_at" = '2010-07-03 15:56:58' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 90ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 00:57:09) [POST]
+  Parameters: {"text"=>"abc", "id"=>"null"}
+
+ActionController::RoutingError (No route matches "/message.json" with {:method=>:post}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:57:52) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:57:52', "perishable_token" = '9E7OQFc6amAM1gRWpIXV', "last_request_at" = '2010-07-03 15:57:52' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 30ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 00:59:10) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 15:59:10', "perishable_token" = '7e8rNuZU95Kv1uoMsELv', "last_request_at" = '2010-07-03 15:59:10' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:05:37) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:05:37', "perishable_token" = '77qiyDwePQsSKVoOBDZA', "last_request_at" = '2010-07-03 16:05:37' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 31ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:08:47) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:08:47', "perishable_token" = 'vQSsSEqMDieLvgLlbA0_', "last_request_at" = '2010-07-03 16:08:47' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 103ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:14:33) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:14:33', "perishable_token" = 'Jq6_tAzYmM0uajtfP4KF', "last_request_at" = '2010-07-03 16:14:33' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:24:53) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:24:53', "perishable_token" = 'I78g2H_3aiM4_KlCA_dl', "last_request_at" = '2010-07-03 16:24:53' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 29ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:25:00) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:25:00', "perishable_token" = 'QT5GZPKD68fDhevo6qa0', "last_request_at" = '2010-07-03 16:25:00' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 26ms (View: 2, DB: 1) | 200 OK [http://localhost/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:26:35) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:26:35', "perishable_token" = 'HsTlg4Ewbo3czu8GSSM_', "last_request_at" = '2010-07-03 16:26:35' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:26:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:26:41', "perishable_token" = 'a9xFtfp3JkanxNeGK30m', "last_request_at" = '2010-07-03 16:26:41' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 95ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 01:27:11) [GET]
+
+ActionController::RoutingError (No route matches "/tascal" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 01:27:12) [GET]
+
+ActionController::RoutingError (No route matches "/tascal" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 01:27:41) [GET]
+
+ActionController::RoutingError (No route matches "/tascal" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 01:27:47) [GET]
+
+ActionController::RoutingError (No route matches "/tascal" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:28:00) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:28:00', "perishable_token" = 'mRvzo73jcvu5EE2Mm4fX', "last_request_at" = '2010-07-03 16:28:00' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 26ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:28:55) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:28:55', "perishable_token" = 'xiU0VnrABFUapZOirCqg', "last_request_at" = '2010-07-03 16:28:55' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 101ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:30:42) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:30:42', "perishable_token" = 'N4bvv2QhUb7Q6Kx98_kE', "last_request_at" = '2010-07-03 16:30:42' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 24ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 01:30:54) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-03 16:30:54', "perishable_token" = 'R2MfjR13EwxDKiD9DYTf', "last_request_at" = '2010-07-03 16:30:54' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:23:28) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (60.2ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:23:28', "perishable_token" = 'CnqWGuPAnhIB6M3bKkDl', "last_request_at" = '2010-07-04 02:23:28' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 718ms (View: 9, DB: 61) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:25:12) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:25:12', "perishable_token" = 'NVLxnBMuP0DPWSBTOqIt', "last_request_at" = '2010-07-04 02:25:12' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 53ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:26:36) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:26:36', "perishable_token" = 'X-MXlXXyeuXzaygtlHrC', "last_request_at" = '2010-07-04 02:26:36' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 2) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:28:20) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:28:20', "perishable_token" = '2Ncots-_APQXJE1Rk0wp', "last_request_at" = '2010-07-04 02:28:20' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 78ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:28:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:28:40', "perishable_token" = 'yNPBmp-v3c7sxvcMM2VP', "last_request_at" = '2010-07-04 02:28:40' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:30:22) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (18.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:30:22', "perishable_token" = 'XIikec1vkL63BX05wZyS', "last_request_at" = '2010-07-04 02:30:22' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 48ms (View: 2, DB: 19) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:30:26) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:30:26', "perishable_token" = 'szBMzXT2W9HbxmOU7PGr', "last_request_at" = '2010-07-04 02:30:26' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 26ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:33:30) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:33:30', "perishable_token" = 'bEdGgT3Y6aQhTizGQE31', "last_request_at" = '2010-07-04 02:33:30' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 29ms (View: 4, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:34:21) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:34:21', "perishable_token" = 'pSUCrYhyo6vfiQmLXlAx', "last_request_at" = '2010-07-04 02:34:21' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:35:14) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:35:14', "perishable_token" = 'XNSazGsxYKbxjHErb8Gu', "last_request_at" = '2010-07-04 02:35:14' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 24ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:36:07) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:36:07', "perishable_token" = 'RhzRRWNBMGM2jTvNaX4R', "last_request_at" = '2010-07-04 02:36:07' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 29ms (View: 3, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:37:56) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:37:56', "perishable_token" = 'fj0Rr2W4vmDq-Ap1bdnt', "last_request_at" = '2010-07-04 02:37:56' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:38:46) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:38:46', "perishable_token" = 'dcDt4MnYELpFNcnvKWFk', "last_request_at" = '2010-07-04 02:38:46' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 47ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:41:25) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:41:25', "perishable_token" = 'eD3_sMfh0cJZbdz63fpV', "last_request_at" = '2010-07-04 02:41:25' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 30ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:43:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:43:41', "perishable_token" = 'IsvPzWRWFOCcT64e-yjT', "last_request_at" = '2010-07-04 02:43:41' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 29ms (View: 4, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:50:28) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:50:28', "perishable_token" = 'Vie2P4LxGbznTHxWQ9yW', "last_request_at" = '2010-07-04 02:50:28' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 55ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:55:29) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:55:29', "perishable_token" = 'dbHQhbr5NgBP7P9ySfmz', "last_request_at" = '2010-07-04 02:55:29' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:57:45) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 02:57:45', "perishable_token" = '4gU6byGQ0rl77NSua90w', "last_request_at" = '2010-07-04 02:57:45' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 23ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
