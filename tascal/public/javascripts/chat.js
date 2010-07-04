@@ -86,7 +86,7 @@ $(document).ready(function() {
 
 	//used to keep the most recent messages visible
 	function scrollDown () {
-	  window.scrollBy(0, 100000000000000000);
+	  //window.scrollBy(0, 100000000000000000);
 	  $("#entry").focus();
 	}
 
@@ -135,7 +135,8 @@ $(document).ready(function() {
 	  messageElement.html(content);
 
 	  //the log is the stream that we view
-	  $("#messages").append(messageElement);
+	  //$("#messages").append(messageElement);
+	  $("#messages").prepend(messageElement);
 
 	  //always view the most recent message when it is added
 	  scrollDown();
@@ -187,7 +188,6 @@ $(document).ready(function() {
 	    //only after the first request for messages do we want to show who is here
 	    if (first_poll) {
 	      first_poll = false;
-	      who();
 	    }
 	  }
 
@@ -291,16 +291,6 @@ $(document).ready(function() {
 	  addMessage("users:", users_string, new Date(), "notice");
 	  return false;
 	}
-
-	//get a list of the users presently in the room, and add it to the stream
-	function who () {
-	  jQuery.get("/who", {}, function (data, status) {
-	    if (status != "success") return;
-	    nicks = data.nicks;
-	    outputUsers();
-	  }, "json");
-	}
-
 
   //submit new messages when the user hits enter if the message isnt blank
   $("#entry").keypress(function (e) {

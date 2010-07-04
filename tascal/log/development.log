@@ -2255,3 +2255,405 @@ Processing ChatController#show (for 127.0.0.1 at 2010-07-04 11:57:45) [GET]
 Rendering template within layouts/application
 Rendering chat/show
 Completed in 23ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 19:27:29) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 10:27:29', "perishable_token" = '0lc8gjiC4n7BXFvLfnCb', "last_request_at" = '2010-07-04 10:27:29' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 151ms (View: 11, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 19:28:02) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 10:28:02', "perishable_token" = 'H1OhkuSNmv3PUQGUsrV8', "last_request_at" = '2010-07-04 10:28:02' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 87ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 19:28:10) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 10:28:10', "perishable_token" = 'jWqsTTnOfyLXnmLXKHlg', "last_request_at" = '2010-07-04 10:28:10' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-04 19:28:14) [GET]
+
+ActionController::RoutingError (No route matches "/links" with {:method=>:get}):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 19:28:22) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 10:28:22', "perishable_token" = 'DcsbspcZ_NZ5VaK0tvIw', "last_request_at" = '2010-07-04 10:28:22' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 24ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 19:28:28) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 10:28:28', "perishable_token" = 'i4kJ5E-hZuK2Et8Fyqcs', "last_request_at" = '2010-07-04 10:28:28' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 25ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 19:30:57) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 10:30:57', "perishable_token" = '2WMAsZvJQ9SeRZ2TPXcO', "last_request_at" = '2010-07-04 10:30:57' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 20:42:11) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 11:42:12', "perishable_token" = 'Cs3u0DvLUPSu8ZinXQ2s', "last_request_at" = '2010-07-04 11:42:12' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 25ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:36:43) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:36:43', "perishable_token" = 'M3P-DWR7QxI51YTqE4GT', "last_request_at" = '2010-07-04 12:36:43' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 27ms (View: 5, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:37:35) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:37:35', "perishable_token" = 'VTc1mlQ7ipXzT971E8rn', "last_request_at" = '2010-07-04 12:37:35' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:37:58) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:37:58', "perishable_token" = '870UTfyIegMt9cQz3E1d', "last_request_at" = '2010-07-04 12:37:58' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 29ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:38:15) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:38:15', "perishable_token" = 'n0IRJCbCeeqmPhftiSmB', "last_request_at" = '2010-07-04 12:38:15' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:38:35) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:38:35', "perishable_token" = 'JR9m-njhsRTJ_2iDKexX', "last_request_at" = '2010-07-04 12:38:35' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 33ms (View: 2, DB: 2) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:39:30) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:39:30', "perishable_token" = 'zEbCM__ZzjacLgqKS5Jz', "last_request_at" = '2010-07-04 12:39:30' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:39:37) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:39:37', "perishable_token" = 'MWTBO9a5IVPtzUbWF-C6', "last_request_at" = '2010-07-04 12:39:37' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 28ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:44:45) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:44:45', "perishable_token" = '84qWLCIZGL7UPOhT88Rb', "last_request_at" = '2010-07-04 12:44:45' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 55ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:45:52) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:45:52', "perishable_token" = 'nGIABX9Q3BhAf91cIkiI', "last_request_at" = '2010-07-04 12:45:52' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 24ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:46:05) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:46:05', "perishable_token" = 'UwjZFl9xDxjG3enc5FGG', "last_request_at" = '2010-07-04 12:46:05' WHERE "id" = 125[0m
+Rendering template within layouts/application
+Rendering chat/show
+Completed in 23ms (View: 2, DB: 1) | 200 OK [http://tascal/chat]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-07-04 21:46:30) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '125') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-04 12:46:30', "perishable_token" = 'Rg1tkZmgeFCkSJxsvLjb', "last_request_at" = '2010-07-04 12:46:30' WHERE "id" = 125[0m
+Redirected to http://tascal/user_session/new
+Completed in 24ms (DB: 1) | 302 Found [http://tascal/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:46:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 23ms (View: 9, DB: 0) | 200 OK [http://tascal/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:46:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (2.6ms)
+Completed in 29ms (View: 15, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:46:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 19ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 20ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.8ms)
+Completed in 21ms (View: 7, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 83ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (2.0ms)
+Completed in 22ms (View: 8, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.8ms)
+Completed in 21ms (View: 7, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 19ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.9ms)
+Completed in 22ms (View: 8, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:22) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 21ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:22) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 80ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.9ms)
+Completed in 23ms (View: 8, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 19ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.8ms)
+Completed in 21ms (View: 7, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 20ms (View: 6, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.8ms)
+Completed in 22ms (View: 7, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 4, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:47:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (2.1ms)
+Completed in 85ms (View: 71, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 19ms (View: 5, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing ChatController#show (for 127.0.0.1 at 2010-07-04 21:47:59) [GET]
+  Parameters: {"action"=>"show", "controller"=>"chat"}
+Redirected to http://tascal/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 13ms (DB: 0) | 302 Found [http://tascal/chat]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:47:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 20ms (View: 5, DB: 0) | 200 OK [http://tascal/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-04 21:48:13) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>""}, "action"=>"create", "authenticity_token"=>"Yvni3wnYh+Gh7YUXqkTZdpDfPOVfV+5PKrpWsrgtRnk=", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 87ms (View: 5, DB: 0) | 200 OK [http://tascal/user_session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:48:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.9ms)
+Completed in 22ms (View: 8, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-04 21:48:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 4, DB: 0) | 200 OK [http://tascal/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-04 21:48:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (1.8ms)
+Completed in 22ms (View: 8, DB: 0) | 200 OK [http://tascal/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-04 21:48:43) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Yvni3wnYh+Gh7YUXqkTZdpDfPOVfV+5PKrpWsrgtRnk=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = '') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '336fa3bfce87a1a08576ec385a609c13ea49107aefbf56fa633fd575cbe5332e47059e86fe861baf17c6d459efb52edffd3aadfd7754685c7f0ecabd5d6b3997') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'j9OrPcsBO2PsqGy82mT9') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (10.3ms)
+Completed in 44ms (View: 20, DB: 1) | 200 OK [http://tascal/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-04 21:49:01) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Yvni3wnYh+Gh7YUXqkTZdpDfPOVfV+5PKrpWsrgtRnk=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = '') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '30f88a998df925dbac4e7484e99d72616b23aece1380d9ae48eb8d395484331d804cdf857aff6576f5396e966917c6adc905368f5338d76d77b450faca2f9a58') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'R7wY7RyLRBixNQr7xtPA') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (10.3ms)
+Completed in 40ms (View: 20, DB: 0) | 200 OK [http://tascal/account]
