@@ -3,7 +3,8 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  #protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  protect_from_forgery :secret => 'abc'
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -24,10 +25,12 @@ class ApplicationController < ActionController::Base
     end
     
     def require_user
+      debugger
       unless current_user
         store_location
         flash[:notice] = "You must be logged in to access this page"
-        redirect_to new_user_session_url
+        #redirect_to new_user_session_url
+	redirect_to 'http://124.155.55.240:8180/user_sessions/new'
         return false
       end
     end
