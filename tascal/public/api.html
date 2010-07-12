@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="/stylesheets/master_chat.css" type="text/css"  charset="utf-8">
+	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeEclipse.css"  rel="stylesheet" type="text/css" />
+	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css"  rel="stylesheet" type="text/css" />
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
+	<title>Tascal</title>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<span class="large">Tascal</span>
+
+			<div id="menus">
+				<ul class="navigation">
+					<li><a href="/">Top</a><li>
+					<li><a href="/chat">Demo</a></li>
+					<li><a href="./api.html">API</a></li>
+					<li><a href="#">Source</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="content">
+			<h1>APIについて</h1>
+				<p>
+					暫定的に作ったものなので、フォーマットやパラメーターなど要件に応じて変更していきます。
+					AIR/iPhone/Androidなどのクライアントからアクセスできるように、今のところAPIのフォーマットとしては一番お手軽なJSONのみサポートしています。
+				</p>
+			<h2>ユーザー認証</h2>
+				<p>
+					すべてのリクエストには、ユーザーの認証情報として、ユーザーごとのapiキーをパラメーターとして含める必要があります。apiキーは見ればわかるという話もありますが、
+					問い合わせてもらえれば教えます。
+				</p>
+			<h2>メッセージの取得</h2>
+				<h3>リクエスト</h3>
+<script type="syntaxhighlighter"  class="brush: js"><![CDATA[
+				GET http://<server>/stream/messages.json?api_key=1234567890
+]]></script>	
+			<p>
+				とりあえず、Tascal用のテスト環境をセットアップしました。Loginリンクからユーザー登録とチャットのデモが試せます。
+				RedmineかTracがほしい...<br/>
+			</p>
+			
+			<h1>Tascalについて</h1>
+			<p>
+				TaskをCalc(ulate)して"助かる(Tascal)"みたいな感じ？ コラボレーションとプロジェクト管理をお手伝いします。<br/>
+				
+			</p>
+			
+			<h1>主な機能</h1>
+			<p>
+				実装する予定の主な機能は下記です。
+				
+				<ul>
+					<li>メンバー同士のチャット(AIRクライアント/iphone/Android)</li>
+					<li>タスクのスケジューリングとレポート機能(他のメンバー間のタスク/スケジュール参照)</li>
+					<li>空き時間検索と打ち合わせサジェスト</li>
+					<li>過去に同じことやった人をご紹介(DRY)</li>
+					<li>その他、よだれがでそうな機能たくさん</li>
+				</ul>
+			</p>
+
+
+			<h1>Links</h1>
+				<p>
+					<ul>
+						<li><a href="api.html">API</a></li>
+						<li><a href="">Source</a></li>
+					</ul>	
+				</p>
+		</div>
+
+		<div class="footer">
+
+		</div>
+	</div>
+	<script type="text/javascript">
+	     SyntaxHighlighter.all()
+	</script>
+</body>
