@@ -9,7 +9,8 @@ ActiveRecord::Base.establish_connection(
   :database => RAILS_BASE_PATH + "/db/development.sqlite3"
 )
 
-require File.expand_path(RAILS_BASE_PATH + "/app/models/message")
+#require File.expand_path(RAILS_BASE_PATH + "/app/models/message")
+require File.expand_path("lib/message")
 require File.expand_path("lib/user")
 require File.expand_path("lib/message_broker")
 

@@ -38,11 +38,13 @@ class ChatAsync < Sinatra::Base
         if msgs.size > 0
           body { {:messages => msgs }.to_json }
         else
-          EM.add_periodic_timer(1){
+          timer = EM.add_periodic_timer(1){
             logger.debug "periodic timer for #{params[:api_key]}"
+            logger.debug "message since #{params[:since]}"
             next_msgs = MessageBroker.messages_since params[:since].to_i
             if next_msgs.size > 0
               body { {:messages => next_msgs}.to_json }
+              EM.__send__ :cancel_timer,timer
             end
           }
         end
@@ -63,7 +65,7 @@ class ChatAsync < Sinatra::Base
       
       logger.debug "message user: #{user.login} text: #{text}"
       
-      msg = Message.new(:text=>text,:user => user)
+      msg = Message.create(:text=>text,:user => user)
       MessageBroker.add_message(msg)
     
       {:messages => [msg]}.to_json

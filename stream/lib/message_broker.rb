@@ -46,7 +46,8 @@ class MessageBroker
     #   message.timestamp > timestamp
     # end
     
-    Message.find(:all,:conditions=>["updated_at >= ?",Time.at (timestamp / 100)]).sort_by {|r| r.updated_at }
+    #logger.debug "find Message since #{Time.at(timestamp /100)}"
+    Message.find(:all,:conditions=>["updated_at > ?",Time.at (timestamp / 1000)]).sort_by {|r| r.updated_at }
   end
   
   # def self.publish_last_message
